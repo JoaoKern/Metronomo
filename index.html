@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Metrônomo</title>
+</head>
+
+<body>
+    <audio src="audios/hi claps.wav"></audio>
+
+    <section id="cabeça">
+        <div class="main">
+            <h1 class="headings">Metrônomo</h1>
+        </div>
+    </section>
+
+    <section id="corpo">
+        <div class="main2">
+            <h1 class="headings2">Dite o seu tempo:</h1>
+
+            <input id="beatInput" class="inputSlider" type="range" min="40" max="228" value="40 bpm">
+            <h2 class="headings2">134 bpm</h2>
+        </div>
+
+        <div class="metronomo">
+            <span class="dot" id="ponto1"></span>
+            <span class="dot" id="ponto2"></span>
+            <span class="dot" id="ponto3"></span>
+            <span class="dot" id="ponto4"></span>
+        </div>
+
+        <input class="botao" type="submit" value="Começar" id="pl">
+        <input class="botao" type="button" value="Parar" id="st">
+    </section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/kotlin@1.5.21/kotlin.min.js"></script>
+<script src="main.js"></script>
+
+</html>

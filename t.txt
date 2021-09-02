@@ -1,0 +1,72 @@
+val bpm = document.getElementById("beatInput") as HTMLInputElement
+    val inciar = document.getElementById("pl") as HTMLButtonElement
+    val parar = document.getElementById("st") as HTMLButtonElement
+    val mostrador = document.querySelector("h2") as HTMLDivElement
+
+    var bpmAtual = 134
+    var bpmOriginal = 0
+    var isPlaying = false
+    var timer = null
+
+    bpm.addEventListener("change", {
+        mostrador.innerHTML = bpm.value + " bpm"
+        bpmAtual = bpm.value.toInt()
+    })
+
+    inciar.addEventListener("click", {
+        if(isPlaying == true){                                           
+            if(bpmAtual != bpmOriginal){ 
+                window.clearInterval(timer)    
+                timer = window.setInterval(tick(), (1000*60)/ bpmAtual)
+                bpmOriginal = bpmAtual
+            }
+        }else{
+            bpmOriginal = bpmAtual
+            timer = window.setInterval(tick(), (1000*60)/ bpmAtual)
+            isPlaying = true
+        }               
+    }) 
+            
+    parar.addEventListener("click", {
+        window.clearInterval(timer)
+        isPlaying = false
+    })  
+
+
+
+
+    <script>
+            const bpm = document.getElementById("beatInput")
+            const inciar = document.getElementById("pl")
+            const parar = document.getElementById("st")
+            const mostrador = document.querySelector("h2") 
+
+            var bpmAtual = 134
+            var bpmOriginal = 0
+            let isPlaying = false
+            let timer = null              
+
+            bpm.addEventListener('change', function(){
+                mostrador.innerHTML = bpm.value + " bpm"
+                bpmAtual = parseInt(bpm.value)
+            })
+
+            inciar.addEventListener('click', function(){
+                if(isPlaying == true){                                           
+                    if(bpmAtual != bpmOriginal){ 
+                        clearInterval(timer)    
+                        timer = setInterval(main.tick, (1000*60)/ bpmAtual)
+                        bpmOriginal = bpmAtual
+                    }
+                }else{
+                    bpmOriginal = bpmAtual
+                    timer = setInterval(main.tick, (1000*60)/ bpmAtual)
+                    isPlaying = true
+                }               
+            }) 
+            
+            parar.addEventListener('click', function(){
+                clearInterval(timer)
+                isPlaying = false
+            })
+        </script>
